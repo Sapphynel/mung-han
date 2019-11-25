@@ -75,10 +75,11 @@ def hangman_config():
 
 def hangman():
     target = random.choice(words)
-    letter_list = set(target.lower())
+    answer = target.lower()
+    letter_list = set(answer)
     errors = 0
     guessed = set()
-    current = " ".join(char if char in guessed else "_" for char in letter_list)
+    current = "".join(char if char in guessed else "_" for char in answer)
 
     while (errors < MAX_TRIES):
         print("Current state: " + current)
@@ -97,21 +98,25 @@ def hangman():
             else:
                 print("Wrong!")
                 errors += 1
-            current = " ".join(char if char in guessed else "_" for char in letter_list)
+            current = "".join(char if char in guessed else "_" for char in answer)
+            if current == answer:
+                print("Got it! The word was {0}.".format(answer))
+                return True
 
 
     print("Out of attempts!")
     if LAST_CHANCE == True:
         saving_throw = input("Saving throw! Guess the word: ")
-        if saving_throw == target:
-            print("Got it!")
+        if saving_throw == answer:
+            print("Got it! The word was {0}.".format(answer))
             return True
         else:
-            print("Failure...")
+            print("Failure...The word was {0}".format(answer))
             return False
 
     else:
         print("No saving throw; you lose...")
+        print("The word was {0}".format(answer))
         return False
 
 
@@ -142,4 +147,5 @@ while True:
         print("Thanks for playing!")
         sys.exit()
     else:
-        print("")
+        print("Invalid input!")
+        continue
