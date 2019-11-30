@@ -1,4 +1,6 @@
-/venv
+/hangman-venv
+
+.flaskenv
 
 *.DS_Store
 

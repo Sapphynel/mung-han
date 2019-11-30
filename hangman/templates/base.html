@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{ title }} – Hangman</title>
+    {% else %}
+    <title>Hangman – an application</title>
+    {% endif %}
+  </head>
+  <body>
+    <div class="toolbar">
+      Hangman – an application
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+</html>
