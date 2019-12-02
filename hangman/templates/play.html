@@ -1,1 +1,11 @@
 {% extends "base.html" %}
+{% block title %}
+  {% if user %}
+  Play - Hangman - {{ user }}
+  {% else %}
+  Play - Hangman - Guest
+  {% endif %}
+{% endblock %}
+{% block content %}
+Ostensible Game Page
+{% endblock %}

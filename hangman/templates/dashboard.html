@@ -1,1 +1,11 @@
 {% extends "base.html" %}
+{% block title %}
+  {% if user %}
+  Dashboard for {{ user }} - Hangman
+  {% else %}
+  Dashboard for Guest - Hangman
+  {% endif %}
+{% endblock %}
+{% block content %}
+Ostensible Dashboard Page
+{% endblock %}

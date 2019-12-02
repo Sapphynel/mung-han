@@ -34,7 +34,7 @@ def create_app(test_config = None):
     def index():
         return render_template('index.html')
 
-    @app.route('/login')
+    @app.route('/login/')
     def login():
         return render_template('login.html')
 
@@ -42,8 +42,8 @@ def create_app(test_config = None):
     def dashboard():
         return render_template('dashboard.html')
 
-    @app.route('/play')
-    def game():
+    @app.route('/play/')
+    def play():
         return render_template('play.html')
 
     return app
