@@ -13,22 +13,14 @@
       <div class="container-fluid">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('play') }}">Play</a>
+            <a class="nav-link" href="{{ url_for('main.new_game') }}">Play</a>
           </li>
         </ul>
       </div>
       <span class="navbar-text" style="text-align: right;">
-        {% if user %}
-          Welcome, {{ user }}!
-        {% else %}
-          Welcome, Guest!
-        {% endif %}
       </span>
     </nav>
     {% block content %}{% endblock %}
@@ -37,7 +29,7 @@
     </div>
   </body>
   {% block scripts %}
-  <script src="/static/jquery-3.4.1.slim.min.js" charset="utf-8"></script>
+  <script src="/static/jquery-3.4.1.min.js" charset="utf-8"></script>
   <script src="/static/bootstrap.bundle.min.js" charset="utf-8"></script>
   <script src="/static/main.js" charset="utf-8"></script>
   {% endblock %}

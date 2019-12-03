@@ -1,10 +1,18 @@
+import random
 import os
 
-from flask import Flask
-from flask import render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template
+from hangman import main
+from hangman.extensions import db, login_manager
 
-db = SQLAlchemy()
+def register_extensions(app):
+    db.init_app(app)
+    login_manager.init_app(app)
+    return None
+
+def register_blueprints(app):
+    app.register_blueprint(main.views.blueprint)
+    return None
 
 def create_app(test_config = None):
     app = Flask(__name__, instance_relative_config=True)
@@ -27,23 +35,7 @@ def create_app(test_config = None):
     except OSError:
         pass
 
-    from hangman.model import db
-    db.init_app(app)
-
-    @app.route('/')
-    def index():
-        return render_template('index.html')
-
-    @app.route('/login/')
-    def login():
-        return render_template('login.html')
-
-    @app.route('/dashboard/')
-    def dashboard():
-        return render_template('dashboard.html')
-
-    @app.route('/play/')
-    def play():
-        return render_template('play.html')
+    register_extensions(app)
+    register_blueprints(app)
 
     return app

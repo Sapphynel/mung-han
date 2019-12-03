@@ -1,1 +1,39 @@
 /* Main CSS file */
+.faq {
+
+}
+
+.welcome {
+
+}
+
+th {
+  text-align: center
+}
+
+.vspace {
+  margin-top: 25px;
+}
+
+.spaced {
+  letter-spacing: 15px;
+  display: block;
+  margin: auto;
+  align-items: center;
+}
+
+/* Drawing */
+
+#drawing {
+  fill: none;
+  display: block;
+  margin: auto;
+  stroke: black;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+#hangman-drawing > * {
+  display: none;
+  margin: auto;
+}
