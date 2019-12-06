@@ -36,6 +36,12 @@
         </ul>
       </div>
       <span class="navbar-text" style="text-align: right;">
+        {% if current_user.is_authenticated %}
+          Welcome, {{ user }}!
+        {% else %}
+
+          Welcome, Guest!
+        {% endif %}
       </span>
     </nav>
     {% block content %}{% endblock %}

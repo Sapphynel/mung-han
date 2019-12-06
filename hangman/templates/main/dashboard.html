@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 {% block title %}
-  Dashboard for {{ user }}
+  Dashboard for {{ user.username }}
 {% endblock %}
 {% block content %}
-Ostensible Dashboard Page
+
+
+  <div class="panel panel-default vspace">
+      <h1 class="center">Statistics for {{ user.username }}</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Word</th>
+            <th>Errors</th>
+        <tbody>
+          {% for game in games %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td class="text-success">{{ game.current }}</td>
+              <td class="text-danger spaced">{{ game.errors }}</td>
+          {% endfor %}
+      </table>
+    </div>
 {% endblock %}
-
-
-<!--
-{% if user %}
-  Welcome, {{ user }}!
-{% else %}
-
-  Welcome, Guest!
-{% endif %}
--->
