@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 - Configure variables (either through a file or through environment variables)
   - Needed configs: SECRET_KEY, SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS=False
-  Example (in an instance folder in the root repo):
+  - Example (in an instance folder in the root repo):
 ```
   import os
 
