@@ -2,16 +2,18 @@ import random
 import os
 
 from flask import Flask, render_template
-from hangman import main
-from hangman.extensions import db, login_manager
+from hangman import main, auth
+from hangman.extensions import db, login_manager, migrate
 
 def register_extensions(app):
     db.init_app(app)
     login_manager.init_app(app)
+    migrate.init_app(app, db)
     return None
 
 def register_blueprints(app):
     app.register_blueprint(main.views.blueprint)
+    app.register_blueprint(auth.views.blueprint)
     return None
 
 def create_app(test_config = None):

@@ -18,14 +18,29 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('main.new_game') }}">Play</a>
           </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.dashboard', username=current_user.username) }}">Dashboard</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+          </li>
+          {% endif %}
         </ul>
       </div>
       <span class="navbar-text" style="text-align: right;">
       </span>
     </nav>
     {% block content %}{% endblock %}
-    <div class="footer">
-      This application was built using Flask.
+    <div class="footer" style="text-align: center;">
+      <p>This application was built using Flask.</p>
     </div>
   </body>
   {% block scripts %}

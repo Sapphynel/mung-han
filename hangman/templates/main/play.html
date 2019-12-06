@@ -36,9 +36,9 @@
       {% endfor %}
     </h1>
     <h3>
-      {% if game.won %} You won! {% else %} You lost :-( {% endif %}
+      {% if game.won %} You won! {% else %} You lost. {% endif %}
     </h3>
-    <p>
+    <p style="text-align: center;">
       <a class="btn btn-default" href="{{ url_for('main.index') }}">Home</a>
       <a class="btn btn-primary"
          href="{{ url_for('main.new_game') }}?player={{ game.player }}">
@@ -55,13 +55,19 @@
   </h2>
 
   {% if not game.finished %}
+  <div id="letter-guessing">
     <form method="post" id="letter-form" class="form-inline vspace">
       <div class="form-group">
         <input class="input-lg text-uppercase" maxlength="1" size="1"
-               name="letter" autocomplete="off" autofocus>
+               name="letter" autocomplete="off" autofocus style="margin-left: auto;
+  margin-right: auto;">
       </div>
-      <button type="submit" class="btn btn-default btn-lg">Try letter</button>
+      <div class="vspace">
+        <button type="submit" class="btn btn-primary">Try letter</button>
+      </div>
     </form>
+  </div>
+
   {% endif %}
 {% endblock %}
 

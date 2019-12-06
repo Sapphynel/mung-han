@@ -9,6 +9,8 @@ from flask import (
     url_for,
 )
 
+from flask_login import login_user, logout_user, current_user, login_required
+
 from hangman.extensions import db
 from hangman.model import *
 
@@ -17,6 +19,13 @@ blueprint = Blueprint("main", __name__)
 @blueprint.route('/')
 def index():
     return render_template('main/index.html')
+
+@blueprint.route('/dashboard/<username>')
+@login_required
+def dashboard(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    games = Game.query.filter_by(player=username).all()
+    return render_template('main/dashboard.html', games=games, user=user)
 
 @blueprint.route('/play')
 def new_game():

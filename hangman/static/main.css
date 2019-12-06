@@ -1,14 +1,15 @@
 /* Main CSS file */
-.faq {
-
+.center {
+  display: block;
+  text-align: center;
 }
 
-.welcome {
-
+h1, h2, h3, h4 {
+  text-align: center;
 }
 
 th {
-  text-align: center
+  text-align: center;
 }
 
 .vspace {
@@ -17,17 +18,34 @@ th {
 
 .spaced {
   letter-spacing: 15px;
-  display: block;
   margin: auto;
   align-items: center;
 }
 
+#letter-guessing {
+  display: block;
+  text-align: center;
+}
+
+#letter-form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+
 /* Drawing */
+.svg {
+  display: block;
+  margin: auto;
+  background-color: #f1e8dc
+}
+
 
 #drawing {
   fill: none;
-  display: block;
-  margin: auto;
+  text-align: center;
   stroke: black;
   stroke-width: 3;
   stroke-linecap: round;
@@ -35,5 +53,6 @@ th {
 
 #hangman-drawing > * {
   display: none;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
