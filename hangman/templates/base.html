@@ -37,9 +37,8 @@
       </div>
       <span class="navbar-text" style="text-align: right;">
         {% if current_user.is_authenticated %}
-          Welcome, {{ user }}!
+          Welcome, {{ current_user.username }}!
         {% else %}
-
           Welcome, Guest!
         {% endif %}
       </span>

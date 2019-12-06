@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}
-  {% if user %}
-  Play - Hangman - {{ user }}
+  {% if current_user.is_authenticated %}
+  Play - Hangman - {{ current_user.username }}
   {% else %}
   Play - Hangman - Guest
   {% endif %}

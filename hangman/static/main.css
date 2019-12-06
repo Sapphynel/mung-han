@@ -1,14 +1,14 @@
 /* Main CSS file */
+ol {
+  list-style-position: inside;
+}
+
 .center {
   display: block;
   text-align: center;
 }
 
-h1, h2, h3, h4 {
-  text-align: center;
-}
-
-th {
+h1, h2, h3, h4, th, td {
   text-align: center;
 }
 

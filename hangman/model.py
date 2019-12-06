@@ -17,7 +17,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    games = db.relationship('Game', backref="played_by", lazy="dynamic")
+    games = db.relationship('Game', backref="player", lazy="dynamic")
     wins = db.Column(db.Integer, default=0)
     losses = db.Column(db.Integer, default=0)
 
@@ -38,7 +38,7 @@ class Game(db.Model):
     pk = db.Column(db.Integer, primary_key=True, default=random_pk)
     word = db.Column(db.String(50), default=random_word)
     tried = db.Column(db.String(50), default='')
-    player = db.Column(db.String(50), db.ForeignKey("user.username"))
+    player_id = db.Column(db.String(50), db.ForeignKey("user.id"))
 
     @property
     def errors(self):

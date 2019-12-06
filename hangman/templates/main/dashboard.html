@@ -17,7 +17,11 @@
           {% for game in games %}
             <tr>
               <td>{{ loop.index }}</td>
+              {% if game.won %}
               <td class="text-success">{{ game.current }}</td>
+              {% else %}
+              <td class="text-danger">{{ game.word }}</td>
+              {% endif %}
               <td class="text-danger spaced">{{ game.errors }}</td>
           {% endfor %}
       </table>

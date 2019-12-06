@@ -24,13 +24,18 @@ def index():
 @login_required
 def dashboard(username):
     user = User.query.filter_by(username=username).first_or_404()
-    games = Game.query.filter_by(player=username).all()
+    games = Game.query.filter_by(player_id=user.id).all()
+    print(user)
+    print(games)
     return render_template('main/dashboard.html', games=games, user=user)
 
 @blueprint.route('/play')
 def new_game():
-    player = request.args.get('player')
-    game = Game()
+    if current_user.is_authenticated:
+        user_id = current_user.id
+    else:
+        user_id = None
+    game = Game(player_id=user_id)
     db.session.add(game)
     db.session.commit()
     return redirect(url_for('main.play', game_id=game.pk))
