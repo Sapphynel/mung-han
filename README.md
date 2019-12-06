@@ -64,6 +64,8 @@ db.create_all()
 ```
 flask run OR waitress-serve --call 'hangman:create_app'
 ```
+While running, you can view this application at localhost:5000.
+
 # Credits:
   - Hangman SVG and functions cribbed from vlopezferrando's implementation
   - Authentication blueprints inspired by tholsapp's implementation, itself
