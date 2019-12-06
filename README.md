@@ -56,7 +56,8 @@ pip install -r requirements.txt
 ```
 python
 export FLASK_APP=hangman
-from hangman import db db.create_all()
+from hangman import db 
+db.create_all()
 ```
 
 # Run (locally):
@@ -67,4 +68,4 @@ flask run OR waitress-serve --call 'hangman:create_app'
   - Hangman SVG and functions cribbed from vlopezferrando's implementation
   - Authentication blueprints inspired by tholsapp's implementation, itself
     a modification from Michel Grinberg's Mega-Flask Tutorial
-  - Application infrastructure inspired by Cookiecutter Flask application     blueprints
+  - Application infrastructure inspired by Cookiecutter Flask application blueprints
