@@ -17,9 +17,9 @@ A simple Hangman game.
   - .gitignore -- for files that should be ignored while creating and for your particular instance
   - requirements.txt -- holds all required packages
 
-  Not tracked:
-    - Instance folders and database (specific to instance)
-    - Bytefiles
+Not tracked:
+  - Instance folders and database (specific to instance)
+  - Bytefiles
 
 
 # To install (Unix):
