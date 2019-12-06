@@ -10,38 +10,39 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-      <div class="container-fluid">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('main.new_game') }}">Play</a>
-          </li>
-          {% if current_user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('main.dashboard', username=current_user.username) }}">Dashboard</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
-          </li>
-          {% endif %}
-        </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.new_game') }}">Play</a>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.dashboard', username=current_user.username) }}">Dashboard</a>
+        </li>
+        <li>
+          <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+      <div class="mx-auto">
+        <h1 class="navbar-brand">Hangman - an app</a>
       </div>
-      <span class="navbar-text" style="text-align: right;">
+      <div class="navbar-text ml-auto">
         {% if current_user.is_authenticated %}
           Welcome, {{ current_user.username }}!
         {% else %}
           Welcome, Guest!
         {% endif %}
-      </span>
+      </div>
     </nav>
     {% block content %}{% endblock %}
     <div class="footer" style="text-align: center;">

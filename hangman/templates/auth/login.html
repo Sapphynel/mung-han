@@ -4,23 +4,27 @@ Login - Hangman
 {% endblock %}
 {% block content %}
 <h1>Sign In</h1>
-    <form class="center" action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(class="form-control", size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(class="form-control", size=32) }}<br>
-            {% for error in form.password.errors %}
-            	<span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit(class_="btn btn-primary") }}</p>
-    </form>
-    <p class="center">New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
+  <div class="row justify-content-center">
+    <div class="col-sm-4 align-self-center">
+      <form class="center" action="" method="post">
+          {{ form.hidden_tag() }}
+          <p>
+              {{ form.username.label }}<br>
+              {{ form.username(class="form-control", size=32) }}<br>
+              {% for error in form.username.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </p>
+          <p>
+              {{ form.password.label }}<br>
+              {{ form.password(class="form-control", size=32) }}<br>
+              {% for error in form.password.errors %}
+              	<span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </p>
+          <p>{{ form.submit(class_="btn btn-primary") }}</p>
+      </form>
+    </div>
+  </div>
+  <p class="center">New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
 {% endblock %}
