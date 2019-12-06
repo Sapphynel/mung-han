@@ -12,13 +12,56 @@ A simple Hangman game.
     - model.py: SQLAlchemy-based database schema
     - words.txt: words used for the game, taken from Webster's 2nd edition
 
+  - migrations -- keeps migrations for possible database upgrades
   - hangman-shell.py -- prototype shell program to flesh out the logic of the game
-  - .gitignore
+  - .gitignore -- for files that should be ignored while creating and for your particular instance
+  - requirements.txt -- holds all required packages
 
-# To install:
-  - Clone the repository:
-  - Install Python
+  Not tracked:
+    - Instance folders and database (specific to instance)
+    - Bytefiles
 
+
+# To install (Unix):
+- Clone the repository:
+```
+git clone https://github.com/Sapphynel/mung-han.git
+```
+
+- Install Python
+- Create a virtual environment in the newly cloned repo and start it:
+```
+python -m venv [name of virtual env]
+source [name of virtual env]/bin/activate
+```
+- Install required packages:
+```
+pip install -r requirements.txt
+```
+
+- Configure variables (either through a file or through environment variables)
+  - Needed configs: SECRET_KEY, SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS=False
+  Example (in an instance folder in the root repo):
+```
+  import os
+
+  SECRET_KEY = os.environ.get('SECRET_KEY') or \
+        'please-dont-use-this'
+
+  SQLALCHEMY_DATABASE_URI = 'sqlite:///hangman.db'
+  SQLALCHEMY_TRACK_MODIFICATIONS = False
+```
+
+- In the application directory (hangman), initialize the environmental variables and database:
+```
+export FLASK_APP=hangman
+python -c 'from hangman import db; db.create_all()'
+```
+
+# Run (locally):
+```
+flask run OR waitress-serve --call 'hangman:create_app'
+```
 # Credits:
   - Hangman SVG and functions cribbed from vlopezferrando's implementation
   - Authentication blueprints inspired by tholsapp's implementation, itself
