@@ -16,7 +16,8 @@ A simple Hangman game.
   - .gitignore
 
 # To install:
-
+  - Clone the repository:
+  - Install Python
 
 # Credits:
   - Hangman SVG and functions cribbed from vlopezferrando's implementation
