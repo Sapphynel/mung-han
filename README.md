@@ -54,8 +54,9 @@ pip install -r requirements.txt
 
 - In the application directory (hangman), initialize the environmental variables and database:
 ```
+python
 export FLASK_APP=hangman
-python -c 'from hangman import db; db.create_all()'
+from hangman import db db.create_all()
 ```
 
 # Run (locally):
